@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1000 Hills Technology Ltd — Engineering Solutions Across East Africa</title>
+  <meta name="description" content="Rwanda-based engineering and technology firm delivering energy, industrial, and digital systems across East Africa since 2006." />
+  <link rel="icon" type="img/png" href="./img/logo.png" />
+
+  <!--
+    FONTS
+    ┌─ Barlow Condensed 700 / 800 / 900 → --f-display  (headings, hero, stats)
+    └─ Inter 300 / 400 / 500 / 600 / 700 → --f-body    (everything else)
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!--
+    Anti-FOUC: apply saved/system theme before CSS renders to avoid flash.
+    Must stay inline and before the stylesheet link.
+  -->
+  <script>
+    (function () {
+      var saved  = localStorage.getItem('1kh-theme');
+      var system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', saved || system);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── SCROLL PROGRESS BAR ──────────────────────────────────────────────── -->
+<div class="scroll-progress-bar" id="js-progress" aria-hidden="true"></div>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════════════════════════════════ -->
+<nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav__inner">
+
+    <!--
+      LOGO — swap the <a> text content for:
+      <img src="/img/logo.png" alt="1000 Hills Technology Ltd" height="40">
+    -->
+    <!-- <a href="#" class="nav__logo" aria-label="1000 Hills Technology — home">
+      1000 <em>Hills</em> Technology
+    </a> -->
+<a href="#" class="nav__logo" aria-label="1000 Hills Technology — home">
+  <img src="./img/logo.png" alt="1000 Hills Technology Ltd" />
+  <span>1000 <em>Hills</em> Technology</span>
+</a>
+    <ul class="nav__links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="btn btn-orange nav__cta">Get in Touch</a>
+
+    <!-- Language toggle -->
+    <div class="lang-toggle" aria-label="Language selector">
+      <button class="lang-btn is-active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+
+    <!-- Theme toggle — sun shown in dark mode, moon in light mode -->
+    <button class="nav__theme-toggle" id="js-theme-toggle" aria-label="Toggle colour theme">
+      <svg class="icon-sun" width="18" height="18" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path stroke-linecap="round"
+              d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/>
+      </svg>
+      <svg class="icon-moon" width="18" height="18" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+
+    <button
+      class="nav__burger"
+      id="js-burger"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="js-drawer"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile full-screen drawer -->
+<div class="nav__drawer" id="js-drawer" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true">
+  <a href="#about"    data-close-drawer>About</a>
+  <a href="#services" data-close-drawer>Services</a>
+  <a href="#projects" data-close-drawer>Projects</a>
+  <a href="#team"     data-close-drawer>Team</a>
+  <a href="#contact"  data-close-drawer>Contact</a>
+  <a href="#contact"  class="btn btn-orange" data-close-drawer>Get in Touch</a>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero" aria-label="Hero — We design, build, and maintain">
+
+  <!-- ─── VIDEO BACKGROUND
+       Replace the .ph placeholder below with:
+
+       <div class="hero__bg">
+         <video autoplay muted loop playsinline>
+           <source src="/videos/hero-solar-watering.mp4" type="video/mp4">
+           <source src="/videos/hero.mp4" type="video/mp4">
+         </video>
+       </div>
+  ─── -->
+  <div class="hero__bg">
+    <div class="ph hero__bg-ph">
+      <svg class="ph__icon" width="52" height="52" fill="none" viewBox="0 0 24 24"
+           stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72
+             M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9A2.25 2.25 0 0013.5 5.25h-9
+             A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75z"/>
+      </svg>
+      <span class="ph__type">Background Video</span>
+      <span class="ph__path">/videos/hero-solar-watering.mp4 → /videos/hero.mp4</span>
+    </div>
+  </div>
+
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="hero__content wrap">
+    <p class="hero__eyebrow">Est. 2006 / East Africa</p>
+    <h1 class="hero__title">
+      WE DESIGN<br>
+      <span class="orange">BUILD</span> &amp;<br>
+      MAINTAIN.
+    </h1>
+    <p class="hero__desc">
+      1000 Hills Technology is a Rwanda-based engineering and technology firm delivering energy,
+      industrial, and digital systems that work in demanding environments. We design, deploy, and
+      maintain infrastructure built for reliability, uptime, and long-term operation—serving
+      businesses and institutions across Africa.
+    </p>
+    <div class="hero__actions">
+      <a href="#projects" class="btn btn-orange">View Our Work</a>
+      <a href="#contact"  class="btn btn-outline-white">Start a Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     COMPANY OVERVIEW
+════════════════════════════════════════════════════════════════════════ -->
+<section class="overview" id="about" aria-labelledby="overview-heading">
+  <div class="wrap overview__inner">
+
+    <!-- Left: copy + stats -->
+    <div class="reveal">
+      <p class="label">Company Overview</p>
+      <h2 class="overview__title" id="overview-heading">
+        A Regional Leader in<br>Engineering Solutions.
+      </h2>
+      <div class="overview__body">
+        <p>
+          Founded in 2006, 1000 Hills Technology Ltd (Certitude Engineering) has established itself
+          as a premier multidisciplinary engineering firm. With a robust presence in Rwanda, Uganda,
+          DRC, Kenya, and Tanzania, we bridge the gap between design and execution.
+        </p>
+        <p>
+          Our vision is to become a regional leader in innovative and sustainable solutions in
+          construction and IT, promoting growth through engineering excellence.
+        </p>
+      </div>
+      <div class="overview__stats">
+        <div>
+          <div class="overview__stat-val">18+</div>
+          <div class="overview__stat-lbl">Years of Experience</div>
+        </div>
+        <div>
+          <div class="overview__stat-val">50+</div>
+          <div class="overview__stat-lbl">Major Projects</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: overlapping media cards -->
+    <div class="overview__media reveal">
+
+      <!-- ─── MAIN VIDEO
+           Replace with:
+           <video class="overview__media-main" autoplay muted loop playsinline>
+             <source src="/videos/card-mep.mp4" type="video/mp4">
+           </video>
+      ─── -->
+      <div class="overview__media-main ph">
+        <svg class="ph__icon" width="40" height="40" fill="none" viewBox="0 0 24 24"
+             stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72
+               M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9A2.25 2.25 0 0013.5 5.25h-9
+               A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75z"/>
+        </svg>
+        <span class="ph__type">Video — Main</span>
+        <span class="ph__path">/videos/card-mep.mp4</span>
+      </div>
+
+      <!-- ─── INSET VIDEO
+           Replace with:
+           <video class="overview__media-inset" autoplay muted loop playsinline>
+             <source src="/videos/gal-solar.mp4" type="video/mp4">
+           </video>
+      ─── -->
+      <div class="overview__media-inset ph">
+        <svg class="ph__icon" width="30" height="30" fill="none" viewBox="0 0 24 24"
+             stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72
+               M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9A2.25 2.25 0 0013.5 5.25h-9
+               A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75z"/>
+        </svg>
+        <span class="ph__type">Video — Inset</span>
+        <span class="ph__path">/videos/gal-solar.mp4</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     QUICK STATS BAR
+════════════════════════════════════════════════════════════════════════ -->
+<div class="stats-bar" aria-label="Key statistics">
+  <div class="wrap stats-bar__inner">
+    <div class="stats-bar__item reveal">
+      <div class="stats-bar__val">5+</div>
+      <div class="stats-bar__lbl">Countries</div>
+    </div>
+    <div class="stats-bar__div" aria-hidden="true"></div>
+    <div class="stats-bar__item reveal">
+      <div class="stats-bar__val">18+</div>
+      <div class="stats-bar__lbl">Years</div>
+    </div>
+    <div class="stats-bar__div" aria-hidden="true"></div>
+    <div class="stats-bar__item reveal">
+      <div class="stats-bar__val">50+</div>
+      <div class="stats-bar__lbl">Major Projects</div>
+    </div>
+    <div class="stats-bar__div" aria-hidden="true"></div>
+    <div class="stats-bar__item reveal">
+      <div class="stats-bar__val">A+</div>
+      <div class="stats-bar__lbl">Safety</div>
+    </div>
+    <div class="stats-bar__div" aria-hidden="true"></div>
+    <div class="stats-bar__item reveal">
+      <div class="stats-bar__val">24/7</div>
+      <div class="stats-bar__lbl">Support</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     BRIEF CTA BAND
+════════════════════════════════════════════════════════════════════════ -->
+<section class="brief-cta" aria-label="Start with a brief">
+  <div class="wrap brief-cta__inner">
+    <div class="brief-cta__text reveal">
+      START WITH<br>THE <span class="orange">BRIEF.</span>
+    </div>
+    <a href="#contact" class="btn btn-orange reveal">Get Started →</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     WHY PARTNER WITH 1000 HILLS?
+════════════════════════════════════════════════════════════════════════ -->
+<section class="why" aria-labelledby="why-heading">
+  <div class="wrap why__inner">
+
+    <!-- Left: heading + numbered list -->
+    <div>
+      <h2 class="why__heading reveal" id="why-heading">
+        WHY PARTNER<br>WITH 1000 HILLS?
+      </h2>
+      <ul class="why__list" role="list">
+        <li class="why__item reveal">
+          <span class="why__num">01.</span>
+          <span class="why__item-title">Integrated MEP + IT approach for complete solutions.</span>
+        </li>
+        <li class="why__item reveal">
+          <span class="why__num">02.</span>
+          <span class="why__item-title">Experience in mission-critical facilities.</span>
+        </li>
+        <li class="why__item reveal">
+          <span class="why__num">03.</span>
+          <span class="why__item-title">Strong regional operational reach across East Africa.</span>
+        </li>
+        <li class="why__item reveal">
+          <span class="why__num">04.</span>
+          <span class="why__item-title">Unwavering focus on sustainability.</span>
+        </li>
+        <li class="why__item reveal">
+          <span class="why__num">05.</span>
+          <span class="why__item-title">Solar-powered irrigation &amp; smart farming for climate-resilient agriculture.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right: sticky media -->
+    <div class="why__media reveal">
+      <!-- ─── VIDEO
+           Replace with:
+           <video class="why__media-ph" autoplay muted loop playsinline
+                  aria-label="Solar-Powered Irrigation & Farming">
+             <source src="/videos/hero-solar-watering.mp4" type="video/mp4">
+           </video>
+      ─── -->
+      <div class="why__media-ph ph">
+        <svg class="ph__icon" width="44" height="44" fill="none" viewBox="0 0 24 24"
+             stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72
+               M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9A2.25 2.25 0 0013.5 5.25h-9
+               A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75z"/>
+        </svg>
+        <span class="ph__type">Video</span>
+        <span class="ph__path">Solar-Powered Irrigation &amp; Farming<br>/videos/hero-solar-watering.mp4</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     INTEGRATED TECHNICAL SOLUTIONS  (cards injected by main.js)
+════════════════════════════════════════════════════════════════════════ -->
+<section class="solutions" id="services" aria-labelledby="solutions-heading">
+  <div class="wrap">
+    <p class="label">Our Expertise</p>
+    <h2 class="solutions__heading reveal" id="solutions-heading">
+      Integrated Technical<br>Solutions
+    </h2>
+    <p class="solutions__sub reveal">
+      Delivering efficiency through design, installation, supervision, and maintenance.
+    </p>
+    <div class="solutions__grid" id="js-solutions"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     THE VISION BEHIND 1000 HILLS  (MD quote)
+════════════════════════════════════════════════════════════════════════ -->
+<section class="vision" id="team" aria-labelledby="vision-heading">
+  <div class="wrap vision__inner">
+
+    <!-- Left: identity -->
+    <div class="reveal">
+      <p class="label">Organization</p>
+      <h2 class="vision__left-heading" id="vision-heading">
+        The Vision<br>Behind<br>1000 Hills.
+      </h2>
+      <!-- <div class="vision__name">Eng. Noah Hills Nkurikiyimanaa</div>
+      <div class="vision__role">Managing Director &amp; Founder — IT &amp; Electronics Engineering</div> -->
+
+      <!-- ─── PHOTO
+           Replace with:
+           <div class="vision__photo">
+             <img src="/img/noah.jpeg" alt="Eng. Noah Hills Nkurikiyimanaa, Managing Director">
+           </div>
+      ─── -->
+      <div class="vision__photo ph" style="width:90px;height:90px;border-radius:50%;">
+        <svg class="ph__icon" width="28" height="28" fill="none" viewBox="0 0 24 24"
+             stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z
+               M4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75
+               c-2.676 0-5.216-.584-7.499-1.632z"/>
+        </svg>
+      </div>
+
+      <div class="vision__paras">
+        <p>
+          At 1000 Hills Technology, our journey since 2006 has been defined by a relentless pursuit
+          of technical excellence. We believe that for East Africa to thrive, our infrastructure must
+          be smart, sustainable, and reliable.
+        </p>
+        <p>
+          Our commitment to our clients goes beyond project completion. We are partners in growth,
+          ensuring that every wire, pipe, and fiber optic cable we install serves as a foundation for
+          the next generation of African innovation.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: blockquote -->
+    <div class="vision__quote reveal">
+      <blockquote>
+        "Engineering is not just about building structures; it is about crafting the future of our
+        continent with precision, technology, and a deep respect for our regional heritage.
+        We don't just solve problems—we build legacies."
+      </blockquote>
+      <a href="#contact" class="btn btn-orange">Meet the Full Team</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     OUR JOURNEY  (timeline items injected by main.js)
+════════════════════════════════════════════════════════════════════════ -->
+<section class="journey" aria-labelledby="journey-heading">
+  <div class="wrap">
+    <p class="label">Milestones</p>
+    <h2 class="reveal" id="journey-heading"
+        style="font-family:var(--f-display);font-weight:900;font-size:clamp(2.25rem,5.5vw,5rem);text-transform:uppercase;line-height:.95;margin-bottom:.75rem;">
+      Our Journey
+    </h2>
+    <p class="journey__intro reveal">
+      From a single consultancy to multidisciplinary delivery across East Africa—each step shaped
+      how we design, build, and maintain critical infrastructure. Selected projects below illustrate
+      that track record in the field.
+    </p>
+    <div class="journey__line" id="js-journey"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     LATEST FROM THE FIELD
+════════════════════════════════════════════════════════════════════════ -->
+<section class="field" aria-labelledby="field-heading">
+  <div class="wrap">
+    <p class="label">Field Notes</p>
+    <h2 class="reveal" id="field-heading"
+        style="font-family:var(--f-display);font-weight:900;font-size:clamp(2.25rem,5.5vw,5rem);text-transform:uppercase;line-height:.95;">
+      Latest from<br>the Field
+    </h2>
+
+    <div class="field__grid">
+      <!--
+        Replace every .ph inside .field__item with:
+        <img src="/img/FILENAME.jpg" alt="Descriptive alt text">
+        The first item spans both rows (large card on the left).
+      -->
+
+      <!-- Item 1 — large, spans both rows -->
+      <div class="field__item reveal">
+        <div class="ph" style="height:100%;min-height:300px;">
+          <svg class="ph__icon" width="40" height="40" fill="none" viewBox="0 0 24 24"
+               stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159
+                 m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909
+                 m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75
+                 A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z
+                 m10.5-11.25h.008v.008h-.008V8.25z
+                 m.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+          </svg>
+          <span class="ph__type">Image — large</span>
+          <span class="ph__path">/img/prison.jpg<br>Rwanda Correctional Service</span>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="field__item reveal">
+        <div class="ph" style="height:100%;min-height:150px;">
+          <svg class="ph__icon" width="32" height="32" fill="none" viewBox="0 0 24 24"
+               stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159
+                 m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909
+                 m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75
+                 A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/>
+          </svg>
+          <span class="ph__type">Image</span>
+          <span class="ph__path">/img/police.jpeg<br>Rwanda National Police</span>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="field__item reveal">
+        <div class="ph" style="height:100%;min-height:150px;">
+          <svg class="ph__icon" width="32" height="32" fill="none" viewBox="0 0 24 24"
+               stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159
+                 m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909
+                 m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75
+                 A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/>
+          </svg>
+          <span class="ph__type">Image</span>
+          <span class="ph__path">/img/solar-irrigation.jpg<br>Solar-Powered Irrigation</span>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="field__item reveal">
+        <div class="ph" style="height:100%;min-height:150px;">
+          <svg class="ph__icon" width="32" height="32" fill="none" viewBox="0 0 24 24"
+               stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159
+                 m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909
+                 m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75
+                 A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/>
+          </svg>
+          <span class="ph__type">Image</span>
+          <span class="ph__path">/img/road.jpg<br>Kigali–Gatuna Road</span>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="field__item reveal">
+        <div class="ph" style="height:100%;min-height:150px;">
+          <svg class="ph__icon" width="32" height="32" fill="none" viewBox="0 0 24 24"
+               stroke="#f69110" stroke-width="1.25" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159
+                 m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909
+                 m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75
+                 A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/>
+          </svg>
+          <span class="ph__type">Image</span>
+          <span class="ph__path">/img/gas-methane.png<br>Gas Methane Rubavu</span>
+        </div>
+      </div>
+
+    </div><!-- /.field__grid -->
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     KEY PROJECTS  (cards injected by main.js)
+════════════════════════════════════════════════════════════════════════ -->
+<section class="projects" id="projects" aria-labelledby="projects-heading">
+  <div class="wrap">
+    <p class="label">Portfolio</p>
+    <h2 class="reveal" id="projects-heading"
+        style="font-family:var(--f-display);font-weight:900;font-size:clamp(2.25rem,5.5vw,5rem);text-transform:uppercase;line-height:.95;">
+      Key Projects
+    </h2>
+    <div class="projects__grid" id="js-projects"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     CLIENTS & PARTNERS  (logo grid injected by main.js)
+════════════════════════════════════════════════════════════════════════ -->
+<section class="partners" aria-labelledby="partners-heading">
+  <div class="wrap">
+    <div class="partners__hdr reveal">
+      <div>
+        <p class="label">Social Proof</p>
+        <h2 class="partners__heading" id="partners-heading">
+          Our Clients<br>&amp; Partners
+        </h2>
+      </div>
+      <div style="text-align:right;">
+        <div class="partners__count">31</div>
+        <div class="partners__count-lbl">Trusted Partners</div>
+      </div>
+    </div>
+    <div class="partners__grid" id="js-partners"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     FAQ  (accordion injected by main.js)
+════════════════════════════════════════════════════════════════════════ -->
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="wrap">
+    <p class="label" data-i18n="label.faq">FAQ</p>
+    <h2 class="faq__heading reveal" id="faq-heading" data-i18n="faq.heading">
+      Frequently Asked<br>Questions
+    </h2>
+    <div class="faq__list" id="js-faq" role="list"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     LET'S BUILD TOGETHER  (contact)
+════════════════════════════════════════════════════════════════════════ -->
+<section class="contact" id="contact" aria-labelledby="contact-heading">
+  <div class="wrap contact__inner">
+
+    <!-- Left: copy + info -->
+    <div class="reveal">
+      <p class="label">Get in Touch</p>
+      <h2 class="contact__title" id="contact-heading">
+        Let's<br><span class="orange">Build</span><br>Together
+      </h2>
+
+      <div class="contact__group">
+        <div class="contact__group-label">Headquarters</div>
+        <div class="contact__group-val">
+          Kigali, Rwanda<br>
+          <span style="color:var(--c-500);font-size:.875rem;">
+            Certified regional operations in Uganda, DRC, Kenya, and Tanzania.
+          </span>
+        </div>
+      </div>
+
+      <div class="contact__group">
+        <div class="contact__group-label">Contact Info</div>
+        <div class="contact__group-val">
+          <a href="tel:+250788340478">+250 788 340 478</a><br>
+          <a href="mailto:info@1000hillstechnology.com">info@1000hillstechnology.com</a>
+        </div>
+      </div>
+
+      <div class="contact__group">
+        <div class="contact__group-label">Connect</div>
+        <div class="contact__social">
+          <a href="https://www.linkedin.com/"   class="btn btn-outline-white" style="font-size:.725rem;padding:.5rem 1rem;" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.facebook.com/"  class="btn btn-outline-white" style="font-size:.725rem;padding:.5rem 1rem;" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/" class="btn btn-outline-white" style="font-size:.725rem;padding:.5rem 1rem;" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: map embed -->
+    <div class="contact__map reveal">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=30.0475%2C-1.9920%2C30.1155%2C-1.9030&layer=mapnik"
+        title="Kigali, Rwanda — 1000 Hills Technology headquarters location"
+        loading="lazy"
+        aria-label="Map showing Kigali, Rwanda office location"
+      ></iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     FOOTER  (redesigned)
+════════════════════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+
+    <!-- ── 3-column grid ───────────────────────────────────────────────── -->
+    <div class="footer__grid">
+
+      <!-- Brand column -->
+      <div class="footer__brand">
+        <!--
+          LOGO — replace text logo with:
+          <a href="#"><img src="/img/logo.png" alt="1000 Hills Technology" height="38"></a>
+        -->
+        <span class="footer__logo">1000 <em>Hills</em></span>
+        <p class="footer__tagline-sm">
+          Built to work.<br><span class="orange">Built to last.</span>
+        </p>
+
+        <!-- Rounded social media buttons -->
+        <nav class="footer__socials" aria-label="Social media">
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/" class="social-btn"
+             target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/" class="social-btn"
+             target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/" class="social-btn"
+             target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/" class="social-btn"
+             target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
+              <polygon fill="#000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+            </svg>
+          </a>
+
+          <!-- X / Twitter -->
+          <a href="https://www.x.com/" class="social-btn"
+             target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Navigation column -->
+      <div class="footer__col">
+        <h3 class="footer__col-title" data-i18n="footer.nav-title">Navigation</h3>
+        <ul role="list">
+          <li><a href="#about"    data-i18n="nav.about">About</a></li>
+          <li><a href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="#team"     data-i18n="nav.team">Team</a></li>
+          <li><a href="#contact"  data-i18n="nav.contact">Contact</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact column -->
+      <div class="footer__col">
+        <h3 class="footer__col-title" data-i18n="footer.contact-title">Contact</h3>
+        <address>
+          <span>Kigali, Rwanda</span>
+          <a href="tel:+250788340478">+250 788 340 478</a>
+          <a href="mailto:info@1000hillstechnology.com">info@1000hillstechnology.com</a>
+        </address>
+      </div>
+
+    </div><!-- /.footer__grid -->
+
+    <!-- ── Bottom bar: copyright + lang toggle ────────────────────────── -->
+    <div class="footer__bar">
+      <p class="footer__copy">© 2026 1000 Hills Technology Ltd.</p>
+      <div class="lang-toggle" aria-label="Language selector">
+        <button class="lang-btn is-active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- JS loaded at end of body; defer not needed since placement is already late -->
+<script src="main.js"></script>
+</body>
+</html>
